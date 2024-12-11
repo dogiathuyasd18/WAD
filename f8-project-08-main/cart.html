@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart | Grocery Mart</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/addToCart.js"></script>
+    <script src="./nodejs/src/controllers/homeController.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="header"></header>
+    <script>
+        load("#header", "./templates/header-logined.ejs");
+    </script>
+
+    <!-- MAIN -->
+    <main class="cart-page">
+        <div class="container">
+            <!-- Cart content -->
+            <div class="cart-container">
+                <form action="/checkout" id="checkout" method="post">
+                    <div class="row">
+                        <div class="col-2 col-xl-12">
+                            <div class="Status">
+                                <div class="col-10 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Starter
+                                    </a>
+                                </div>
+                                <div class="col-10 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Starter
+                                    </a>
+                                </div>
+                                <div class="col-10 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Starter
+                                    </a>
+                                </div>
+                                <div class="col-10 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Starter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-7 col-xl-12">
+                            <div class="col-12 col-xl-12">
+                                <!-- Row for cart items -->
+                                <div class="row">
+                                    <!-- Cart item 1: Fresh Organic Apples -->
+                                    <div class="col-4 col-md-4">
+                                        <article class="cart-item" data-price="5.99" data-item="item-1">
+                                            <div class="cart-item__content" name="1">
+                                                <div class="cart-item__content-left" name="item-1">
+                                                    <div><img src="./assets/img/product/item-1.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
+                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                            
+                                    <!-- Cart item 2: Fresh Organic Apples -->
+                                    <div class="col-4 col-md-4">
+                                        <article class="cart-item" data-price="5.99" data-item="item-2">
+                                            <div class="cart-item__content" name="2">
+                                                <div class="cart-item__content-left" name="item-2">
+                                                    <div><img src="./assets/img/product/item-2.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
+                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                            
+                                    <!-- Cart item 3: Fresh Organic Apples -->
+                                    <div class="col-4 col-md-4">
+                                        <article class="cart-item" data-price="5.99" data-item="item-3">
+                                            <div class="cart-item__content" name="3">
+                                                <div class="cart-item__content-left" name="item-3">
+                                                    <div><img src="./assets/img/product/item-3.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
+                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Cart item 1: Fresh Organic Apples -->
+                                    <div class="col-4 col-md-4">
+                                        <article class="cart-item" data-price="5.99" data-item="item-1">
+                                            <div class="cart-item__content" name="1">
+                                                <div class="cart-item__content-left" name="item-1">
+                                                    <div><img src="./assets/img/product/item-1.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
+                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                            
+                                    <!-- Cart item 2: Fresh Organic Apples -->
+                                    <div class="col-4 col-md-4">
+                                        <article class="cart-item" data-price="5.99" data-item="item-2">
+                                            <div class="cart-item__content" name="2">
+                                                <div class="cart-item__content-left" name="item-2">
+                                                    <div><img src="./assets/img/product/item-2.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
+                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                            
+                                    <!-- Cart item 3: Fresh Organic Apples -->
+                                    <div class="col-4 col-md-4">
+                                        <article class="cart-item" data-price="5.99" data-item="item-3">
+                                            <div class="cart-item__content" name="3">
+                                                <div class="cart-item__content-left" name="item-3">
+                                                    <div><img src="./assets/img/product/item-3.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
+                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-around">
+                                    <div class="col-6 col-xl-3">
+                                        <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            Menu
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-xl-3">
+                                        <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            Payment
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-3 col-xl-12">
+                                <div class="row information">
+                                    <div class="col-12 col-xl-3">
+                                        <a href="./shipping.html">
+                                            PAYABLE AMOUNT
+                                        </a>
+                                    </div>
+                                    <div class="col-8 col-xl-3">
+                                        <a>
+                                            $38.5
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xl-3">
+                                        <a>
+                                            TIME: 20:02 PM
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row tips">
+                                    <div class="col-3 col-xl-3">
+                                        <a href="./shipping.html">
+                                            Add TIP
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xl-3">
+                                        <a href="./shipping.html"
+                                            class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            $5
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xl-3">
+                                        <a href="./shipping.html"
+                                            class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            $10
+                                        </a>
+                                    </div>
+                                    <div class="col-3 col-xl-3">
+                                        <a href="./shipping.html"
+                                            class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            $15
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row type-paynow-buttons">
+                                    <div class="col-4 col-xl-3">
+                                        <a href="./shipping.html"
+                                            class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            Cash
+                                        </a>
+                                    </div>
+                                    <div class="col-4 col-xl-3">
+                                        <a href="./shipping.html"
+                                            class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            Card
+                                        </a>
+                                    </div>
+                                    <div class="col-4 col-xl-3">
+                                        <a href="./shipping.html"
+                                            class="cart-info__next-btn btn btn--primary btn--rounded">
+                                            QR
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-12 col-xl-50">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        CASH RECIEVED: $45
+                                    </a>
+                                </div>
+                                <hr>
+                                <div class="cart-info">
+                                    <div class="cart-info__row">
+                                        <span>Subtotal <span class="cart-info__sub-label">(items)</span></span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="cart-info__row">
+                                        <span>Price <span class="cart-info__sub-label">(Total)</span></span>
+                                        <span>$191.65</span>
+                                    </div>
+                                    <div class="cart-info__row">
+                                        <span>Shipping</span>
+                                        <span>$10.00</span>
+                                    </div>
+                                    <div class="cart-info__separate"></div>
+                                    <div class="cart-info__row">
+                                        <span>Estimated Total</span>
+                                        <span>$201.65</span>
+                                    </div>
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Paynow
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                </form>
+
+            </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer id="footer" class="footer"></footer>
+    <script>
+        load("#footer", "./templates/footer.ejs");
+    </script>
+
+    <!-- Modal: confirm remove shopping cart item -->
+    <div id="delete-confirm" class="modal modal--small hide">
+        <div class="modal__content">
+            <p class="modal__text">Do you want to remove this item from your cart?</p>
+            <div class="modal__bottom">
+                <button class="btn btn--small btn--outline modal__btn js-toggle" toggle-target="#delete-confirm">
+                    Cancel
+                </button>
+                <button class="btn btn--small btn--danger btn--primary modal__btn btn--no-margin js-toggle"
+                    toggle-target="#delete-confirm">
+                    Remove
+                </button>
+            </div>
+        </div>
+        <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Checkout | Grocery Mart</title>
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+
+        <!-- Scripts -->
+        <script src="./assets/js/scripts.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header-logined.html");
+        </script>
+
+        <!-- MAIN -->
+        <main class="checkout-page">
+            <div class="container">
+                <!-- Search bar -->
+                <div class="checkout-container">
+                    <div class="search-bar d-none d-md-flex">
+                        <input type="text" name="" id="" placeholder="Search for item" class="search-bar__input" />
+                        <button class="search-bar__submit">
+                            <img src="./assets/icons/search.svg" alt="" class="search-bar__icon icon" />
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Breadcrumbs -->
+                <div class="checkout-container">
+                    <ul class="breadcrumbs checkout-page__breadcrumbs">
+                        <li>
+                            <a href="./" class="breadcrumbs__link">
+                                Home
+                                <img src="./assets/icons/arrow-right.svg" alt="" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">Checkout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Checkout content -->
+                <div class="checkout-container">
+                    <div class="row gy-xl-3">
+                        <div class="col-8 col-xl-12">
+                            <div class="cart-info">
+                                <div class="cart-info__list">
+                                    <!-- Cart item 1 (Meal 1) -->
+                                    <article class="cart-item">
+                                        <a href="./meal-detail.html">
+                                            <img
+                                                src="./assets/img/product/item-1.png"
+                                                alt="Meal 1"
+                                                class="cart-item__thumb"
+                                            />
+                                        </a>
+                                        <div class="cart-item__content">
+                                            <div class="cart-item__content-left">
+                                                <h3 class="cart-item__title">
+                                                    <a href="./meal-detail.html">
+                                                        Grilled Chicken with Steamed Vegetables
+                                                    </a>
+                                                </h3>
+                                                <p class="cart-item__price-wrap">
+                                                    $15.00 | <span class="cart-item__status">In Stock</span>
+                                                </p>
+                                                <div class="cart-item__ctrl cart-item__ctrl--md-block">
+                                                    <div class="cart-item__input">
+                                                        Chef's Special
+                                                        <img
+                                                            class="icon"
+                                                            src="./assets/icons/arrow-down-2.svg"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div class="cart-item__input">
+                                                        <span>1</span> Serving
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item__content-right">
+                                                <p class="cart-item__total-price">$15.00</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                
+                                    <!-- Cart item 2 (Meal 2) -->
+                                    <article class="cart-item">
+                                        <a href="./meal-detail.html">
+                                            <img
+                                                src="./assets/img/product/item-2.png"
+                                                alt="Meal 2"
+                                                class="cart-item__thumb"
+                                            />
+                                        </a>
+                                        <div class="cart-item__content">
+                                            <div class="cart-item__content-left">
+                                                <h3 class="cart-item__title">
+                                                    <a href="./meal-detail.html">
+                                                        Spaghetti Carbonara - Classic Italian Pasta
+                                                    </a>
+                                                </h3>
+                                                <p class="cart-item__price-wrap">
+                                                    $18.00 | <span class="cart-item__status">In Stock</span>
+                                                </p>
+                                                <div class="cart-item__ctrl cart-item__ctrl--md-block">
+                                                    <div class="cart-item__input">
+                                                        Italian Cuisine
+                                                        <img
+                                                            class="icon"
+                                                            src="./assets/icons/arrow-down-2.svg"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div class="cart-item__input">
+                                                        <span>1</span> Serving
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item__content-right">
+                                                <p class="cart-item__total-price">$18.00</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                
+                                    <!-- Cart item 3 (Meal 3) -->
+                                    <article class="cart-item">
+                                        <a href="./meal-detail.html">
+                                            <img
+                                                src="./assets/img/product/item-3.png"
+                                                alt="Meal 3"
+                                                class="cart-item__thumb"
+                                            />
+                                        </a>
+                                        <div class="cart-item__content">
+                                            <div class="cart-item__content-left">
+                                                <h3 class="cart-item__title">
+                                                    <a href="./meal-detail.html">
+                                                        Beef Steak with Mashed Potatoes
+                                                    </a>
+                                                </h3>
+                                                <p class="cart-item__price-wrap">
+                                                    $22.50 | <span class="cart-item__status">In Stock</span>
+                                                </p>
+                                                <div class="cart-item__ctrl cart-item__ctrl--md-block">
+                                                    <div class="cart-item__input">
+                                                        Gourmet Meal
+                                                        <img
+                                                            class="icon"
+                                                            src="./assets/icons/arrow-down-2.svg"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div class="cart-item__input">
+                                                        <span>1</span> Serving
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cart-item__content-right">
+                                                <p class="cart-item__total-price">$22.50</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                
+                                <div class="cart-info__bottom d-md-none">
+                                    <div class="row">
+                                        <div class="col-8 col-xxl-7">
+                                            <div class="cart-info__continue">
+                                                <a href="./" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                                    Cancel Order
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-xl-12">
+                            <div class="row information">
+                                <div class="col-12 col-xl-3">
+                                    <a href="./shipping.html" >
+                                        PAYABLE AMOUNT
+                                    </a>
+                                </div>
+                                <div class="col-8 col-xl-3">
+                                    <a>
+                                        $38.5
+                                    </a>
+                                </div>
+                                <div class="col-3 col-xl-3">
+                                    <a>
+                                        TIME: 20:02 PM
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row tips">
+                                <div class="col-3 col-xl-3">
+                                    <a href="./shipping.html" >
+                                        Add TIP
+                                    </a>
+                                </div>
+                                <div class="col-3 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        $5
+                                    </a>
+                                </div>
+                                <div class="col-3 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                       $10
+                                    </a>
+                                </div>
+                                <div class="col-3 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        $15
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row type-paynow-buttons">
+                                <div class="col-4 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Cash
+                                    </a>
+                                </div>
+                                <div class="col-4 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        Card
+                                    </a>
+                                </div>
+                                <div class="col-4 col-xl-3">
+                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                        QR
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-12 col-xl-50">
+                                <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    CASH RECIEVED: $45 
+                                </a>
+                            </div>
+                            <hr>
+                            <div class="cart-info">
+                                <div class="cart-info__row">
+                                    <span>Subtotal <span class="cart-info__sub-label">(items)</span></span>
+                                    <span>3</span>
+                                </div>
+                                <div class="cart-info__row">
+                                    <span>Price <span class="cart-info__sub-label">(Total)</span></span>
+                                    <span>$191.65</span>
+                                </div>
+                                <div class="cart-info__row">
+                                    <span>Shipping</span>
+                                    <span>$10.00</span>
+                                </div>
+                                <div class="cart-info__separate"></div>
+                                <div class="cart-info__row">
+                                    <span>Estimated Total</span>
+                                    <span>$201.65</span>
+                                </div>
+                                <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    Paynow
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer.html");
+        </script>
+
+        <!-- Modal: confirm remove shopping cart item -->
+        <div id="delete-confirm" class="modal modal--small hide">
+            <div class="modal__content">
+                <p class="modal__text">Do you want to remove this item from shopping cart?</p>
+                <div class="modal__bottom">
+                    <button class="btn btn--small btn--outline modal__btn js-toggle" toggle-target="#delete-confirm">
+                        Cancel
+                    </button>
+                    <button
+                        class="btn btn--small btn--danger btn--primary modal__btn btn--no-margin js-toggle"
+                        toggle-target="#delete-confirm"
+                    >
+                        Delete
+                    </button>
+                </div>
+            </div>
+            <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
+        </div>
+    </body>
+</html>
