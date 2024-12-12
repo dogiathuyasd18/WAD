@@ -228,3 +228,206 @@ window.addEventListener("template-loaded", () => {
 
 const isDark = localStorage.dark === "true";
 document.querySelector("html").classList.toggle("dark", isDark);
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to handle quantity changes
+    function changeQuantity(itemId, delta) {
+        const item = document.querySelector(`[data-item="${itemId}"]`);
+        const quantityEl = item.querySelector('.quantity');
+        const totalPriceEl = item.querySelector('.cart-item__total-price');
+        const price = parseFloat(item.dataset.price);
+
+        // Update the quantity
+        let quantity = parseInt(quantityEl.innerText) + delta;
+        if (quantity < 1) {
+            quantity = 0; // Minimum quantity is 0
+        }
+        quantityEl.innerText = quantity;
+
+        // Update the total price for this item
+        const totalItemPrice = quantity * price;
+        totalPriceEl.innerText = `$${totalItemPrice.toFixed(2)}`;
+
+        // Recalculate subtotal and total
+        updateCartTotals();
+    }
+
+    // Function to calculate subtotal and total
+    function updateCartTotals() {
+        let subtotal = 0;
+
+        // Sum up the total prices of all items
+        document.querySelectorAll('.cart-item').forEach((item) => {
+            const quantity = parseInt(item.querySelector('.quantity').innerText);
+            const price = parseFloat(item.dataset.price);
+            subtotal += quantity * price;
+        });
+
+        // Update subtotal and total in the UI
+        document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
+
+        // Add shipping fee (fixed at $10 for this example)
+        const total = subtotal + 10;
+        document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+
+        // Update the hidden input with the new subtotal
+        const hiddenSubtotalInput = document.querySelector('input[name="subtotal"]');
+        if (hiddenSubtotalInput) {
+            hiddenSubtotalInput.value = subtotal.toFixed(2); // Set the value of the hidden input field
+        }
+
+        // Update the hidden input with the new total
+        const hiddenTotalInput = document.querySelector('input[name="total"]');
+        if (hiddenTotalInput) {
+            hiddenTotalInput.value = total.toFixed(2); // Set the value of the hidden input field
+        }
+    }
+
+    // Event listeners for quantity buttons (decrease and increase)
+    document.querySelectorAll('.decrease').forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+            const itemId = button.getAttribute('data-item');
+            changeQuantity(itemId, -1); // Decrease quantity
+        });
+    });
+
+    document.querySelectorAll('.increase').forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+            const itemId = button.getAttribute('data-item');
+            changeQuantity(itemId, 1); // Increase quantity
+        });
+    });
+
+    // Event listener for remove item buttons
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', function () {
+            const itemId = button.getAttribute('data-item');
+            removeItemFromCart(itemId);
+        });
+    });
+
+    // Function to remove an item from the cart
+    function removeItemFromCart(itemId) {
+        const item = document.querySelector(`[data-item="${itemId}"]`);
+        item.remove(); // Remove the item from the DOM
+
+        // Recalculate the cart totals after removal
+        updateCartTotals();
+    }
+
+    // Initial cart total calculation on page load
+    updateCartTotals();
+
+    // Now let's attach the event listener to the Proceed to Checkout button
+    const checkoutButton = document.getElementById('checkoutForm');
+    
+    checkoutButton.addEventListener('click', async function (event) {
+        event.preventDefault(); // Prevent form submission from button
+
+        // Prepare data from the form
+        const total = document.getElementById('total').innerText.replace('$', '');
+        const shipping = document.querySelector('input[name="shipping"]').value;
+        const subtotal = document.getElementById('subtotal').innerText.replace('$', '');
+
+        // Collect cart items (from cart details function)
+        const cartItems = [];
+
+        document.querySelectorAll('.cart-item').forEach((item) => {
+            const quantity = parseInt(item.querySelector('.quantity').innerText);
+            const title = item.querySelector('.cart-item__title').innerText;
+            const price = parseFloat(item.dataset.price);
+            const totalPrice = quantity * price;
+
+            cartItems.push({
+                title: title,
+                quantity: quantity,
+                price: price.toFixed(2),
+                totalPrice: totalPrice.toFixed(2),
+            });
+        });
+
+        // Now submit the data to the server
+        const response = await fetch('/checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                total: total,
+                shipping: shipping,
+                subtotal: subtotal,
+                cartItem: JSON.stringify(cartItems)
+            })
+        });
+
+        // Handle the response
+        const result = await response.json();
+        console.log(result); // You can use this result to redirect or show confirmation on the client side
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the checkout form and button
+    const checkoutForm = document.getElementById('checkoutForm');
+    const checkoutButton = document.getElementById('checkoutButton');
+
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Prepare the form data (subtotal, total, shipping, cart items)
+            const total = document.getElementById('total').innerText.replace('$', '');
+            const shipping = document.querySelector('input[name="shipping"]').value;
+            const subtotal = document.getElementById('subtotal').innerText.replace('$', '');
+            
+            // Prepare cart items from the page
+            const cartItems = [];
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const quantity = parseInt(item.querySelector('.quantity').innerText);
+                const title = item.querySelector('.cart-item__title').innerText;
+                const price = parseFloat(item.dataset.price);
+                const totalPrice = quantity * price;
+                
+                cartItems.push({
+                    title: title,
+                    quantity: quantity,
+                    price: price.toFixed(2),
+                    totalPrice: totalPrice.toFixed(2)
+                });
+            });
+
+            // Attach the data as hidden inputs to the form
+            const hiddenTotalInput = document.createElement('input');
+            hiddenTotalInput.type = 'hidden';
+            hiddenTotalInput.name = 'total';
+            hiddenTotalInput.value = total;
+            checkoutForm.appendChild(hiddenTotalInput);
+
+            const hiddenShippingInput = document.createElement('input');
+            hiddenShippingInput.type = 'hidden';
+            hiddenShippingInput.name = 'shipping';
+            hiddenShippingInput.value = shipping;
+            checkoutForm.appendChild(hiddenShippingInput);
+
+            const hiddenSubtotalInput = document.createElement('input');
+            hiddenSubtotalInput.type = 'hidden';
+            hiddenSubtotalInput.name = 'subtotal';
+            hiddenSubtotalInput.value = subtotal;
+            checkoutForm.appendChild(hiddenSubtotalInput);
+
+            const hiddenCartItemsInput = document.createElement('input');
+            hiddenCartItemsInput.type = 'hidden';
+            hiddenCartItemsInput.name = 'cartItem';
+            hiddenCartItemsInput.value = JSON.stringify(cartItems);
+            checkoutForm.appendChild(hiddenCartItemsInput);
+
+            // Submit the form programmatically
+            checkoutForm.submit();
+        });
+    } else {
+        console.error('Checkout button not found.');
+    }
+});
+

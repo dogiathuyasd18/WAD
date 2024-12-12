@@ -28,13 +28,6 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="header" class="header"></header>
-    <script>
-        load("#header", "./templates/header-logined.ejs");
-    </script>
-
-    <!-- MAIN -->
     <main class="cart-page">
         <div class="container">
             <!-- Cart content -->
@@ -44,22 +37,22 @@
                         <div class="col-2 col-xl-12">
                             <div class="Status">
                                 <div class="col-10 col-xl-3">
-                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    <a class="cart-info__next-btn btn btn--primary btn--rounded">
                                         Starter
                                     </a>
                                 </div>
                                 <div class="col-10 col-xl-3">
-                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    <a class="cart-info__next-btn btn btn--primary btn--rounded">
                                         Starter
                                     </a>
                                 </div>
                                 <div class="col-10 col-xl-3">
-                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    <a  class="cart-info__next-btn btn btn--primary btn--rounded">
                                         Starter
                                     </a>
                                 </div>
                                 <div class="col-10 col-xl-3">
-                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    <a  class="cart-info__next-btn btn btn--primary btn--rounded">
                                         Starter
                                     </a>
                                 </div>
@@ -67,92 +60,206 @@
                         </div>
                         <div class="col-7 col-xl-12">
                             <div class="col-12 col-xl-12">
-                                <!-- Row for cart items -->
-                                <div class="row">
-                                    <!-- Cart item 1: Fresh Organic Apples -->
-                                    <div class="col-4 col-md-4">
-                                        <article class="cart-item" data-price="5.99" data-item="item-1">
-                                            <div class="cart-item__content" name="1">
-                                                <div class="cart-item__content-left" name="item-1">
-                                                    <div><img src="./assets/img/product/item-1.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
-                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
-                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
-                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                <!-- Cart content -->
+                                <div class="cart-container">
+                                    <form action="/checkout" id="checkout" method="post">
+                                        <div class="content">
+                                            <div class="row">
+                                        
+                                                <!-- Cart item 1: Apples -->
+                                                <div class="col-4 col-xl-4">
+                                                    <article class="cart-item" data-price="5.99" data-item="item-1">
+                                                        <div class="cart-item__content" name="1">
+                                                            <div class="cart-item__content-left" name="item-1">
+                                                                <div>
+                                                                    <img src="./assets/img/product/item-1.png" alt="Fresh Organic Apples" class="cart-item__thumb" />
+                                                                </div>
+                                                                <h3 class="cart-item__title">Fresh Organic Apples</h3>
+                                                                <p class="cart-item__total-price" id="total-price-item-1">$5.99</p>
+                                                                <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                                                <div class="cart-item__input">
+                                                                    <button class="cart-item__input-btn decrease" data-item="item-1">
+                                                                        <img class="icon" src="./assets/icons/minus.svg" alt="Decrease quantity" />
+                                                                    </button>
+                                                                    <span class="quantity" id="quantity-item-1" name="quantity1">0</span>
+                                                                    <button class="cart-item__input-btn increase" data-item="item-1">
+                                                                        <img class="icon" src="./assets/icons/plus.svg" alt="Increase quantity" />
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                        
+                                                      
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                        
+                                                <!-- Cart item 2: Bananas -->
+                                                <div class="col-4 col-xl-4">
+                                                    <article class="cart-item" data-price="3.99" data-item="item-2">
+                                                        <div class="cart-item__content" name="2">
+                                                            <div class="cart-item__content-left" name="item-2">
+                                                                <div>
+                                                                    <img src="./assets/img/product/item-2.png" alt="Fresh Bananas" class="cart-item__thumb" />
+                                                                </div>
+                                                                <h3 class="cart-item__title">Fresh Bananas</h3>
+                                                                <p class="cart-item__total-price" id="total-price-item-2">$3.99</p>
+                                                                <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Bananas","quantity":2,"price":3.99}]'>
+                                                                <div class="cart-item__input">
+                                                                    <button class="cart-item__input-btn decrease" data-item="item-2">
+                                                                        <img class="icon" src="./assets/icons/minus.svg" alt="Decrease quantity" />
+                                                                    </button>
+                                                                    <span class="quantity" id="quantity-item-2" name="quantity2">0</span>
+                                                                    <button class="cart-item__input-btn increase" data-item="item-2">
+                                                                        <img class="icon" src="./assets/icons/plus.svg" alt="Increase quantity" />
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                        
+                                                            
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                        
+                                                <!-- Cart item 3: Oranges -->
+                                                <div class="col-4 col-xl-4">
+                                                    <article class="cart-item" data-price="6.99" data-item="item-3">
+                                                        <div class="cart-item__content" name="3">
+                                                            <div class="cart-item__content-left" name="item-3">
+                                                                <div>
+                                                                    <img src="./assets/img/product/item-3.png" alt="Fresh Oranges" class="cart-item__thumb" />
+                                                                </div>
+                                                                <h3 class="cart-item__title">Fresh Oranges</h3>
+                                                                <p class="cart-item__total-price" id="total-price-item-3">$6.99</p>
+                                                                <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Oranges","quantity":2,"price":6.99}]'>
+                                                                <div class="cart-item__input">
+                                                                    <button class="cart-item__input-btn decrease" data-item="item-3">
+                                                                        <img class="icon" src="./assets/icons/minus.svg" alt="Decrease quantity" />
+                                                                    </button>
+                                                                    <span class="quantity" id="quantity-item-3" name="quantity3">0</span>
+                                                                    <button class="cart-item__input-btn increase" data-item="item-3">
+                                                                        <img class="icon" src="./assets/icons/plus.svg" alt="Increase quantity" />
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                        
+                                                            
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- asdf -->
+                    
+                                        <div class="content">
+                                            <div class="row">
+                                        
+                                                <!-- Cart item 1: Apples -->
+                                                <div class="col-4 col-xl-4">
+                                                        <!-- Cart item 4: Dragon Fruit -->
+                                        <article class="cart-item" data-price="9.99" data-item="item-4">
+                                            <div class="cart-item__content" name="4">
+                                                <div class="cart-item__content-left" name="item-4">
+                                                    <div><img src="./assets/img/product/item-4.png" alt="Fresh Dragon Fruit"
+                                                            class="cart-item__thumb" /></div>
+                                                    <h3 class="cart-item__title">Fresh Dragon Fruit</h3>
+                                                    <p class="cart-item__total-price" id="total-price-item-4">$9.99</p>
+                                                    <input type="hidden" name="cartItem" id="cartItems"
+                                                        value='[{"name":"Dragon Fruit","quantity":2,"price":9.99}]'>
+                                                        <div class="cart-item__input">
+                                                            <button class="cart-item__input-btn decrease" data-item="item-4">
+                                                                <img class="icon" src="./assets/icons/minus.svg" alt="" />
+                                                            </button>
+                                                            <span class="quantity" id="quantity-item-4" name="quantity4">0</span>
+                                                            <button class="cart-item__input-btn increase" data-item="item-4">
+                                                                <img class="icon" src="./assets/icons/plus.svg" alt="" />
+                                                            </button>
+                                                        </div>
+                                                </div>
+                    
+                                                <div class="cart-item__ctrl cart-item__ctrl--md-block">
+                                                    <!-- Quantity control -->
+                                                    
+                                                </div>
+                                                <div class="cart-item__content-right">
+                                                    
+                                                    
                                                 </div>
                                             </div>
                                         </article>
-                                    </div>
-                            
-                                    <!-- Cart item 2: Fresh Organic Apples -->
-                                    <div class="col-4 col-md-4">
-                                        <article class="cart-item" data-price="5.99" data-item="item-2">
-                                            <div class="cart-item__content" name="2">
-                                                <div class="cart-item__content-left" name="item-2">
-                                                    <div><img src="./assets/img/product/item-2.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
-                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
-                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
-                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
                                                 </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                            
-                                    <!-- Cart item 3: Fresh Organic Apples -->
-                                    <div class="col-4 col-md-4">
-                                        <article class="cart-item" data-price="5.99" data-item="item-3">
-                                            <div class="cart-item__content" name="3">
-                                                <div class="cart-item__content-left" name="item-3">
-                                                    <div><img src="./assets/img/product/item-3.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
-                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
-                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
-                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                        
+                                                <!-- Cart item 2: Bananas -->
+                                                <div class="col-4 col-xl-4">
+                                                    <article class="cart-item" data-price="12.50" data-item="item-5">
+                                                        <div class="cart-item__content" name="5">
+                                                            <div class="cart-item__content-left" name="item-5">
+                                                                <div><img src="./assets/img/product/item-5.png" alt="Fresh Mangoes"
+                                                                        class="cart-item__thumb" /></div>
+                                                                <h3 class="cart-item__title">Fresh Mangoes</h3>
+                                                                <p class="cart-item__total-price" id="total-price-item-5">$12.50</p>
+                                                                <input type="hidden" name="cartItem" id="cartItems"
+                                                                    value='[{"name":"Mangoes","quantity":2,"price":12.50}]'>
+                                                                    <div class="cart-item__input">
+                                                                        <button class="cart-item__input-btn decrease" data-item="item-5">
+                                                                            <img class="icon" src="./assets/icons/minus.svg" alt="" />
+                                                                        </button>
+                                                                        <span class="quantity" id="quantity-item-5" name="quantity5">0</span>
+                                                                        <button class="cart-item__input-btn increase" data-item="item-5">
+                                                                            <img class="icon" src="./assets/icons/plus.svg" alt="" />
+                                                                        </button>
+                                                                    </div>
+                                                            </div>
+                                
+                                                            
+                                                           
+                                                        </div>
+                                                    </article>
                                                 </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <!-- Cart item 1: Fresh Organic Apples -->
-                                    <div class="col-4 col-md-4">
-                                        <article class="cart-item" data-price="5.99" data-item="item-1">
-                                            <div class="cart-item__content" name="1">
-                                                <div class="cart-item__content-left" name="item-1">
-                                                    <div><img src="./assets/img/product/item-1.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
-                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
-                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
-                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
+                                        
+                                                <!-- Cart item 3: Oranges -->
+                                                <div class="col-4 col-xl-4">
+                                                    <article class="cart-item" data-price="8.99" data-item="item-6">
+                                                        <div class="cart-item__content" name="6">
+                                                            <div class="cart-item__content-left" name="item-6">
+                                                                <div><img src="./assets/img/product/item-6.png" alt="Fresh Watermelon"
+                                                                        class="cart-item__thumb" /></div>
+                                                                <h3 class="cart-item__title">Fresh Watermelon</h3>
+                                                                <p class="cart-item__total-price" id="total-price-item-6">$8.99</p>
+                                                                <input type="hidden" name="cartItem" id="cartItems"
+                                                                    value='[{"name":"Watermelon","quantity":2,"price":8.99}]'>
+                                                                    <div class="cart-item__input">
+                                                                        <button class="cart-item__input-btn decrease" data-item="item-6">
+                                                                            <img class="icon" src="./assets/icons/minus.svg" alt="" />
+                                                                        </button>
+                                                                        <span class="quantity" id="quantity-item-6" name="quantity6">0</span>
+                                                                        <button class="cart-item__input-btn increase" data-item="item-6">
+                                                                            <img class="icon" src="./assets/icons/plus.svg" alt="" />
+                                                                        </button>
+                                                                    </div>
+                                                            </div>
+                                
+                                                            
+                                                        </div>
+                                                    </article>
                                                 </div>
+                                        
                                             </div>
-                                        </article>
-                                    </div>
-                            
-                                    <!-- Cart item 2: Fresh Organic Apples -->
-                                    <div class="col-4 col-md-4">
-                                        <article class="cart-item" data-price="5.99" data-item="item-2">
-                                            <div class="cart-item__content" name="2">
-                                                <div class="cart-item__content-left" name="item-2">
-                                                    <div><img src="./assets/img/product/item-2.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
-                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
-                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
-                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                            
-                                    <!-- Cart item 3: Fresh Organic Apples -->
-                                    <div class="col-4 col-md-4">
-                                        <article class="cart-item" data-price="5.99" data-item="item-3">
-                                            <div class="cart-item__content" name="3">
-                                                <div class="cart-item__content-left" name="item-3">
-                                                    <div><img src="./assets/img/product/item-3.png" alt="Fresh Organic Apples" class="cart-item__thumb" /></div>
-                                                    <h3 class="cart-item__title">Fresh Organic Apples</h3>
-                                                    <p class="cart-item__price-wrap">$5.99 | <span class="cart-item__status">In Stock</span></p>
-                                                    <input type="hidden" name="cartItem" id="cartItems" value='[{"name":"Apple","quantity":2,"price":5.99}]'>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
+                                        </div>
+                                        
+                                        <div >
+                                        
+                                        <!-- Cart item 5: Mangoes -->
+                                        
+                    
+                                        <!-- Cart item 6: Watermelon -->
+                                        
+                                        </div>
+                    
+                                        
+                                    </form>
+                    
                                 </div>
                             </div>
                             <div class="row">
@@ -185,35 +292,25 @@
                                     </div>
                                     <div class="col-3 col-xl-3">
                                         <a>
-                                            TIME: 20:02 PM
+                                            TIME: 20:02PM
                                         </a>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row tips">
                                     <div class="col-3 col-xl-3">
-                                        <a href="./shipping.html">
-                                            Add TIP
+                                        <a>
+                                            TIP
                                         </a>
                                     </div>
-                                    <div class="col-3 col-xl-3">
-                                        <a href="./shipping.html"
+                                    
+                                    <div class="col-12 col-xl-3">
+                                        <a 
                                             class="cart-info__next-btn btn btn--primary btn--rounded">
-                                            $5
+                                            $10.00
                                         </a>
                                     </div>
-                                    <div class="col-3 col-xl-3">
-                                        <a href="./shipping.html"
-                                            class="cart-info__next-btn btn btn--primary btn--rounded">
-                                            $10
-                                        </a>
-                                    </div>
-                                    <div class="col-3 col-xl-3">
-                                        <a href="./shipping.html"
-                                            class="cart-info__next-btn btn btn--primary btn--rounded">
-                                            $15
-                                        </a>
-                                    </div>
+                                    
                                 </div>
                                 <hr>
                                 <div class="row type-paynow-buttons">
@@ -238,32 +335,33 @@
                                 </div>
                                 <hr>
                                 <div class="col-12 col-xl-50">
-                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
-                                        CASH RECIEVED: $45
-                                    </a>
+                                    <div class="cart-info__next-btn btn btn--primary btn--rounded">
+                                    CASH:
+                                    <span id="total">
+                                    </span>
+                                </div>
                                 </div>
                                 <hr>
                                 <div class="cart-info">
-                                    <div class="cart-info__row">
-                                        <span>Subtotal <span class="cart-info__sub-label">(items)</span></span>
-                                        <span>3</span>
+                                    <div class="col-12" name="total" value="999">
+                                        <div class="cart-summary">
+                                            <div class="cart-summary__row">
+                                                <span>Subtotal:</span>
+                                                <span id="subtotal">$100.00</span>
+                                                <input type="hidden" name="subtotal" value="10">
+                                            </div>
+                                            <div class="cart-summary__row">
+                                                <span>Tips:</span>
+                                                <span>$10.00</span>
+                                                <input type="hidden" name="shipping" value="10">
+                                            </div>
+                                            <div class="cart-summary__separate"></div>
+                                            <div class="cart-summary__row cart-summary__row--bold">
+                                                <span id="total">Total:</span>
+                                                <input type="hidden" name="total" value="1000">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="cart-info__row">
-                                        <span>Price <span class="cart-info__sub-label">(Total)</span></span>
-                                        <span>$191.65</span>
-                                    </div>
-                                    <div class="cart-info__row">
-                                        <span>Shipping</span>
-                                        <span>$10.00</span>
-                                    </div>
-                                    <div class="cart-info__separate"></div>
-                                    <div class="cart-info__row">
-                                        <span>Estimated Total</span>
-                                        <span>$201.65</span>
-                                    </div>
-                                    <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
-                                        Paynow
-                                    </a>
                                 </div>
                             </div>
                     </div>
